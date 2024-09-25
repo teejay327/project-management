@@ -10,7 +10,7 @@ const ProjectsSidebar = () => {
     <ul>
 
     </ul>
-  </aside>>
+  </aside>
 }
 
 export default ProjectsSidebar;
