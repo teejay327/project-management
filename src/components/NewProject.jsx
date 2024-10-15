@@ -1,7 +1,7 @@
 import Input from './Input';
 import { useRef } from "react";
 
-const NewProject = () => {
+const NewProject = ({ onAdd }) => {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -10,6 +10,12 @@ const NewProject = () => {
     const enteredTitle = title.current.value;
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
+
+    onAdd({
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate
+    });
   }
 
   return <div className="w-[35rem] mt-16">
@@ -22,9 +28,9 @@ const NewProject = () => {
       </li>
     </menu>
     <div>
-     <Input ref={ title } label="Title" />
+     <Input type="text" ref={ title } label="Title" />
      <Input ref={ description } label="Description" textarea />
-     <Input ref={ dueDate } label="Due date" />
+     <Input type="date" ref={ dueDate } label="Due date" />
     </div>
   </div>
 }
