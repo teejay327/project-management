@@ -27,8 +27,14 @@ const App = () => {
     });
   };
 
-  function handleDeleteTask() {
-
+  function handleDeleteTask(id) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        tasks: prevState.tasks.filter((task) => task.id !== id)
+      };
+    })
   };
 
   function handleSelectProject(id) {
@@ -105,6 +111,7 @@ const App = () => {
         onStartAddProject={ handleStartAddProject } 
         onSelectProject={ handleSelectProject }
         projects={ projectsState.projects }
+        selectedProjectId={ projectsState.selectedProjectId }
       />
       { content }
     </main>
