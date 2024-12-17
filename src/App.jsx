@@ -13,7 +13,7 @@ const App = () => {
   });
 
   function handleAddTask(text) {
-    setProjectsState(prevState => {
+    setProjectsState((prevState) => {
       const taskId = Math.random();
       const newTask = {
         text: text,
